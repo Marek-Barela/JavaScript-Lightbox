@@ -8,12 +8,12 @@ body
   max-width: 1200px
   margin: 0 auto
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
   grid-column-gap: 10px
   grid-row-gap: 10px
 .gallery-container__image-wrapper
   position: relative
-  height: calc(100% - 5px)
+  height: 225px
   cursor: pointer
 .gallery-container__image-wrapper::before, .gallery-container__image-wrapper::after
   content: ""
@@ -23,7 +23,7 @@ body
   bottom: 0
   left: 0
   top: 0
-  transition: border 0.3s
+  transition: border 0.4s
 .gallery-container__image-wrapper::before
   border: 16px solid rgba(0, 0, 0, 0.4)
 .gallery-container__image-wrapper::after
@@ -32,4 +32,39 @@ body
   border: 32px solid rgba(0, 0, 0, 0.4)
 .gallery-container__image
   width: 100%
-  height: 220px
+  height: 225px
+.gallery-container__image-wrapper figcaption
+  color: #ffffff
+  font-size: 0.7em
+  letter-spacing: 1px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  padding: 8px 15px
+  opacity: 0
+  transition: 0.4s opacity
+.gallery-container__image-wrapper:hover figcaption
+  opacity: 1
+.gallery-container__image-wrapper figcaption:after, .gallery-container__image-wrapper figcaption:before
+  content: ""
+  position: absolute
+  background-color: rgba(0, 0, 0, 0.5)
+  height: 50px
+  width: 80px
+  opacity: 0
+  transition: transform 0.4s, opacity 0.4s
+  z-index: -1
+.gallery-container__image-wrapper
+  figcaption:after
+    transform: translate(80%, 80%)
+    bottom: 0
+    right: 0
+  figcaption:before
+    left: 0
+    top: 0
+    transform: translate(-80%, -80%)
+  &:hover
+    figcaption:after, figcaption:before
+       transform: translate(0%, 0%)
+       opacity: 1
