@@ -1,9 +1,10 @@
 import { elements } from "./DOMSelectors";
 
 const renderImage = image => {
+  const { id, url } = image;
   const element = `
-    <figure class="gallery-container__image-wrapper">
-      <img class="gallery-container__image" src=${image.url} id=${image.id} />
+    <figure class="gallery-container__image-wrapper" id=${id}>
+      <img class="gallery-container__image" src=${url} />
       <figcaption>
         Display
       </figcaption>
@@ -11,8 +12,8 @@ const renderImage = image => {
   `;
 
   elements.galleryContainer.insertAdjacentHTML("beforeend", element);
-}
+};
 
 export const renderResults = images => {
-  return images.forEach(renderImage)
-}
+  return images.forEach(renderImage);
+};
